@@ -3,11 +3,11 @@ import { useParams } from "react-router";
 import { FaLink } from "react-icons/fa";
 import projectImages from "../images/projectImages";
 import { Link } from "react-router-dom";
-import { scrollToTopBtn } from "../components/utils/Animation";
 import gsap from "gsap/gsap-core";
 import { ScrollTrigger } from "gsap/all";
 import { ScrollToPlugin } from "gsap/all";
 import { useMediaQuery } from "react-responsive";
+import Footer from "../components/Footer";
 
 const ProjectDetails = () => {
   let { title } = useParams();
@@ -161,22 +161,7 @@ const ProjectDetails = () => {
               )}
             </div>
           </div>
-          <footer>
-            <div className="logo">
-              <Link to="/">BRWN.</Link>
-            </div>
-            <div className="footer-links">
-              <span>©2020 James Brown</span>
-              <span> - </span>
-              <Link className="link" to="/about-me">
-                About-Me
-              </Link>
-              <span> - </span>
-              <span className="link" onClick={scrollToTopBtn}>
-                Scroll to top
-              </span>
-            </div>
-          </footer>
+          <Footer />
         </div>
       ) : (
         <span>Page not found</span>

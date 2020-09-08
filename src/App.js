@@ -7,6 +7,7 @@ import Projects from "./pages/Projects";
 import ProjectDetails from "./pages/ProjectDetails";
 import ScrollToTop from "./components/utils/ScrollToTop";
 import Home from "./pages/Home";
+import About from "./pages/About";
 
 const App = () => {
   let app = useRef(null);
@@ -41,10 +42,6 @@ const App = () => {
 
 function Solutions() {
   return <p>Solutions that help you.</p>;
-}
-
-function About() {
-  return <p>Feel free to reach us.</p>;
 }
 
 export default App;

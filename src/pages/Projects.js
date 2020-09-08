@@ -2,7 +2,8 @@ import React, { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 import { projectList } from "../images/projectImages";
-import { projectReveal, scrollToTopBtn } from "../components/utils/Animation";
+import { projectReveal } from "../components/utils/Animation";
+import Footer from "../components/Footer";
 
 const Projects = () => {
   let content1 = useRef(null);
@@ -104,22 +105,7 @@ const Projects = () => {
           {/* marker */}
         </div>
 
-        <footer>
-          <div className="logo">
-            <Link to="/">BRWN.</Link>
-          </div>
-          <div className="footer-links">
-            <span>©2020 James Brown</span>
-            <span> - </span>
-            <Link className="link" to="/about-me">
-              About
-            </Link>
-            <span> - </span>
-            <span className="link" onClick={scrollToTopBtn}>
-              Scroll to top
-            </span>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </div>
   );
