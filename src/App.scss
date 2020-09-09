@@ -31,6 +31,7 @@ $phohe-filter-shadow: drop-shadow(6px 4px 9px rgba(0, 0, 0, 0.3));
 *::-webkit-scrollbar-thumb {
   background-color: $darkGray; /* color of the scroll thumb */
   border: 1px solid white;
+  border-radius: 16px;
 }
 
 html,
@@ -140,9 +141,13 @@ body {
       .hero-text-line {
         overflow: hidden;
       }
-      @media (max-width: 1440px) {
+      @media (max-width: 1455px) {
         padding-right: 0;
-        font-size: 1.65rem;
+        font-size: 1.6rem;
+      }
+      @media (max-width: 1280px) {
+        padding-right: 0;
+        font-size: 1.3rem;
       }
       @media (max-width: 1024px) {
         padding-right: 0;
@@ -789,6 +794,11 @@ header {
             font-size: 2rem;
             font-weight: 600;
             text-align: center;
+          }
+          @media (max-width: 1440px) {
+            a {
+              font-size: 1.8rem;
+            }
           }
           @media (max-width: 1024px) {
             padding: 0 2.5rem 2.5rem;

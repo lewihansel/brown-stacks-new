@@ -1,6 +1,6 @@
 {
   "name": "brown-stack-v2",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "gsap": "^3.5.1",
