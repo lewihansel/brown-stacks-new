@@ -8,6 +8,7 @@ import ProjectDetails from "./pages/ProjectDetails";
 import ScrollToTop from "./components/utils/ScrollToTop";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 const App = () => {
   let app = useRef(null);
@@ -29,7 +30,7 @@ const App = () => {
 
                 <Route exact path="/" component={Home} />
                 <Route exact path="/projects" component={Projects} />
-                <Route exact path="/solutions" component={Solutions} />
+                <Route exact path="/contact" component={Contact} />
                 <Route exact path="/about-me" component={About} />
               </Switch>
             </div>
@@ -39,9 +40,5 @@ const App = () => {
     </Router>
   );
 };
-
-function Solutions() {
-  return <p>Solutions that help you.</p>;
-}
 
 export default App;

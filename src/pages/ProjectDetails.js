@@ -16,6 +16,8 @@ const ProjectDetails = () => {
   const [otherProject1, setOtherProject1] = useState(null);
   const [otherProject2, setOtherProject2] = useState(null);
 
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
   const isMobile = useMediaQuery({ query: "(max-width: 500px)" });
 
   useEffect(() => {
@@ -30,8 +32,6 @@ const ProjectDetails = () => {
       setOtherProject2(projectImages["brown-photo-app"]);
     }
   }, [title]);
-
-  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
   useEffect(() => {
     if (projectDetails) {

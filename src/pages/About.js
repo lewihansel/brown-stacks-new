@@ -1,4 +1,11 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import { ScrollTrigger } from "gsap/all";
+import { ScrollToPlugin } from "gsap/all";
+import gsap from "gsap/gsap-core";
+import { Link } from "react-router-dom";
+import { FaInstagram, FaWhatsapp, FaLinkedinIn } from "react-icons/fa";
+import { FiMail } from "react-icons/fi";
+import Footer from "../components/Footer";
 
 import profilePic from "../images/about/profile-pic 1.png";
 import python from "../images/about/python.png";
@@ -16,21 +23,135 @@ import greensock from "../images/about/gsap.png";
 import gAnalytics from "../images/about/Analytics.png";
 import gAds from "../images/about/GoogleAds.png";
 import ahrefs from "../images/about/Ahrefs.png";
-import Footer from "../components/Footer";
 
 const About = () => {
+  let title = useRef(null);
+  let photo = useRef(null);
+
+  let firstRow = useRef(null);
+  let secondRow = useRef(null);
+  let thirdRow = useRef(null);
+
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+  const textRevealSwipe = (node1, node2, node3, node4, photo) => {
+    const firstText = node1.children[0].children[0];
+    const firstBox = firstText.nextSibling;
+    const secondText = node1.children[1].children[0];
+    const secondBox = secondText.nextSibling;
+    const thirdText = node1.children[2].children[0];
+    const thirdBox = thirdText.nextSibling;
+
+    const firstRowText = node2.children[0];
+
+    let tl = new gsap.timeline({ delay: 0.8 });
+
+    tl.to([firstBox, secondBox, thirdBox], {
+      duration: 0.6,
+      css: {
+        left: "0",
+      },
+      stagger: 0.06,
+      ease: "power4.out",
+    })
+      .to([firstText, secondText, thirdText], {
+        duration: 0,
+        css: {
+          opacity: "1",
+        },
+      })
+      .to(
+        [firstBox, secondBox, thirdBox],
+        {
+          duration: 0.8,
+          css: {
+            left: "100%",
+          },
+          stagger: 0.1,
+          ease: "power4.in",
+        },
+        "+=0.1"
+      )
+      .from(
+        photo,
+        { duration: 0.8, opacity: 0, y: 200, ease: "power3.out" },
+        "-=0.2"
+      )
+      .from(firstRowText, {
+        duration: 0.6,
+        opacity: 0,
+        y: 200,
+        ease: "power3.out",
+      })
+      .addLabel("headerAnimFinish");
+
+    scrollReveal(node3);
+    scrollReveal(node4);
+  };
+
+  const scrollReveal = (node) => {
+    const text = node.children[0];
+    const images = gsap.utils.toArray(text.nextSibling.children);
+
+    gsap
+      .timeline(
+        {
+          scrollTrigger: {
+            trigger: node,
+            start: "30% bottom",
+          },
+        },
+        "headerAnimFinish"
+      )
+      .from(text, {
+        duration: 0.6,
+        opacity: 0,
+        y: 200,
+        ease: "power3.out",
+      });
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: text.nextSibling,
+          start: "50% bottom",
+        },
+      })
+      .from(images, {
+        duration: 1,
+        opacity: 0,
+        y: -100,
+        ease: "bounce.out",
+        stagger: 0.2,
+      });
+  };
+
+  useEffect(() => {
+    textRevealSwipe(title, firstRow, secondRow, thirdRow, photo);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="about">
-      <div className="title">
-        <span>about</span>
-        <span>James</span>
-        <span>Brown</span>
-        <div className="profilePic">
-          <img src={profilePic} alt="" />
+      <div className="title" ref={(el) => (title = el)}>
+        <div className="titleRow">
+          <span>about</span>
+          <div className="bg-box" />
+        </div>
+        <div className="titleRow">
+          <span>James</span>
+          <div className="bg-box" />
+        </div>
+        <div className="titleRow">
+          <span>Brown</span>
+          <div className="bg-box" />
+        </div>
+        <div className="profilePic" ref={(el) => (photo = el)}>
+          <img src={profilePic} alt="james brown" />
         </div>
       </div>
 
-      <div className="firstRow">
+      <div className="firstRow" ref={(el) => (firstRow = el)}>
         <div className="text">
           <span>
             My real name is <em>Lewi Hansel</em>, I’m a{" "}
@@ -48,7 +169,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="secondRow">
+      <div className="secondRow" ref={(el) => (secondRow = el)}>
         <div className="text">
           <span className="rowTitle">
             on my <em>fullstack</em> development approach
@@ -84,7 +205,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="thirdRow">
+      <div className="thirdRow" ref={(el) => (thirdRow = el)}>
         <div className="text">
           <span className="rowTitle">
             on my <em>digital marketing</em> strategy
@@ -111,6 +232,47 @@ const About = () => {
           <img src={gAnalytics} alt="analytics logo" className="analytics" />
           <img src={gAds} alt="google ads logo" className="ads" />
           <img src={ahrefs} alt="ahrefs logo" className="ahrefs" />
+        </div>
+      </div>
+
+      <div className="contactBtn">
+        <Link to="/contact">Get In Touch.</Link>
+        <span className="contactTitle">
+          <em>That's about me</em>, now it's your turn. <em>Reach me out</em> at
+          one of this account:
+        </span>
+        <div className="contactAccount">
+          <div className="col1">
+            <a href="https://www.instagram.com/lewihansel/">
+              <FaInstagram />
+              <span>Instagram</span>
+            </a>
+            <a href="https://wa.me/6285780008389?text=Hi%20Hansel%20👋">
+              <FaWhatsapp />
+              <span>What'sApp</span>
+            </a>
+          </div>
+          <div className="col2">
+            <a href="https://www.linkedin.com/in/lewihansel/">
+              <FaLinkedinIn />
+              <span>LinkedIn</span>
+            </a>
+            <a href="mailto:hansel1895@gmail.com">
+              <FiMail />
+              <span>Mail</span>
+            </a>
+          </div>
+        </div>
+
+        <div className="repoDetail">
+          <span>
+            *This website is created using
+            <a href="https://reactjs.org/">React</a>, all animation is done
+            using<a href="https://greensock.com/">GSAP</a>. If you like to
+            submit any improvement or if you want to just see the code, head out
+            to the
+            <a href="https://github.com/lewihansel/brown-stacks-new">repo</a>
+          </span>
         </div>
       </div>
 

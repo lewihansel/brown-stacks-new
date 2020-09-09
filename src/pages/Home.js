@@ -6,6 +6,7 @@ import {
   mobileHomeAnimation,
   desktopHomeAnimation,
 } from "../components/utils/Animation";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   let heroText = useRef(null);
@@ -13,7 +14,7 @@ const Home = () => {
   let backgroundText = useRef(null);
   let tl = new TimelineLite({ delay: 0.8 });
 
-  const isMobile = useMediaQuery({ query: "(max-width: 500px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 540px)" });
 
   useEffect(() => {
     if (isMobile) {
@@ -92,8 +93,10 @@ const Home = () => {
           </h5>
         )}
         <button className="homeBtn" ref={(el) => (heroBtn = el)}>
-          <span>Learn More </span>
-          <BsArrowRight />
+          <Link to="/about-me">
+            <span>Learn More </span>
+            <BsArrowRight />
+          </Link>
         </button>
         {!isMobile && (
           <span className="backgroundText" ref={(el) => (backgroundText = el)}>

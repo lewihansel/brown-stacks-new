@@ -7,6 +7,15 @@ import brownPhotoShare from "../images/hover/Hover_490px.png";
 import brownMovie from "../images/hover/Hover_BrownMovie.png";
 import BrownCommerce from "../images/hover/Hover_BrownCommerce.png";
 import { useMediaQuery } from "react-responsive";
+import {
+  staggerReveal,
+  fadeInUp,
+  staggerText,
+  handleHover,
+  handleHoverExit,
+  handleCity,
+  handleCityReturn,
+} from "./utils/Animation";
 
 const cities = [
   { name: "490px", image: brownPhotoShare },
@@ -24,7 +33,7 @@ const Hamburger = ({ state }) => {
   let line3 = useRef(null);
   let info = useRef(null);
 
-  const isMobile = useMediaQuery({ query: "(max-width: 500px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 540px)" });
 
   useEffect(() => {
     if (state.clicked === false) {
@@ -62,83 +71,6 @@ const Hamburger = ({ state }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state]);
 
-  const staggerReveal = (node1, node2) => {
-    gsap.from([node1, node2], {
-      duration: 0.8,
-      height: 0,
-      transformOrigin: "right, top",
-      skewY: 2,
-      ease: "power3.inOut",
-      stagger: {
-        amount: 0.1,
-      },
-    });
-  };
-
-  const staggerText = (node1, node2, node3) => {
-    gsap.from([node1, node2, node3], {
-      duration: 0.8,
-      y: 100,
-      delay: 0.2,
-      ease: "power3.inOut",
-      stagger: {
-        amount: 0.3,
-      },
-    });
-  };
-
-  const fadeInUp = (node) => {
-    gsap.from(node, {
-      y: 60,
-      duration: 1,
-      delay: 0.2,
-      opacity: 0,
-      ease: "power3.inOut",
-    });
-  };
-
-  const handleCity = (city) => {
-    gsap.to(cityBackground, {
-      duration: 0,
-      background: `url(${city}) center center`,
-    });
-    gsap.to(cityBackground, {
-      duration: 0.4,
-      opacity: 1,
-      ease: "power3.inOut",
-    });
-    gsap.from(cityBackground, {
-      duration: 0.4,
-      skewY: 1,
-      transformOrigin: "right top",
-    });
-  };
-
-  const handleCityReturn = () => {
-    gsap.to(cityBackground, {
-      duration: 0.4,
-      opacity: 0,
-    });
-  };
-
-  const handleHover = (e) => {
-    gsap.to(e.target, {
-      duration: 0.1,
-      y: 3,
-      skewX: 4,
-      ease: "power3.inOut",
-    });
-  };
-
-  const handleHoverExit = (e) => {
-    gsap.to(e.target, {
-      duration: 0.2,
-      y: -3,
-      skewX: 0,
-      ease: "power3.inOut",
-    });
-  };
-
   return (
     <div className="hamburger-menu" ref={(el) => (menu = el)}>
       <div
@@ -160,9 +92,9 @@ const Hamburger = ({ state }) => {
                       onMouseEnter={handleHover}
                       onMouseOut={handleHoverExit}
                       ref={(el) => (line1 = el)}
-                      to="/solutions"
+                      to="/projects"
                     >
-                      Solutions
+                      Projects
                     </Link>
                   </li>
                   <li>
@@ -180,9 +112,9 @@ const Hamburger = ({ state }) => {
                       onMouseEnter={handleHover}
                       onMouseOut={handleHoverExit}
                       ref={(el) => (line3 = el)}
-                      to="/projects"
+                      to="/contact"
                     >
-                      Projects
+                      Contact
                     </Link>
                   </li>
                 </ul>
@@ -191,11 +123,9 @@ const Hamburger = ({ state }) => {
                 <div ref={(el) => (info = el)} className="info">
                   <h3>Hi, friend. 👋</h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Modi dolorem deleniti obcaecati repudiandae deserunt
-                    possimus inventore odio aut, reprehenderit similique ipsa
-                    ipsum, voluptates quidem ut adipisci magnam, enim nesciunt
-                    doloribus.
+                    welcome to Brown-Stacks, hover over last projects bellow to
+                    see a glimpse of my last projects. For more information
+                    about my development approach visit about-me page.
                   </p>
                 </div>
               )}
@@ -204,8 +134,8 @@ const Hamburger = ({ state }) => {
                 {cities.map((item) => (
                   <span
                     key={item.name}
-                    onMouseEnter={() => handleCity(item.image)}
-                    onMouseLeave={handleCityReturn}
+                    onMouseEnter={() => handleCity(item.image, cityBackground)}
+                    onMouseLeave={() => handleCityReturn(cityBackground)}
                   >
                     {item.name}
                   </span>
