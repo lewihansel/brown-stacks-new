@@ -4,8 +4,6 @@ import { FaLink } from "react-icons/fa";
 import projectImages from "../images/projectImages";
 import { Link } from "react-router-dom";
 import gsap from "gsap/gsap-core";
-import { ScrollTrigger } from "gsap/all";
-import { ScrollToPlugin } from "gsap/all";
 import { useMediaQuery } from "react-responsive";
 import Footer from "../components/Footer";
 
@@ -16,9 +14,7 @@ const ProjectDetails = () => {
   const [otherProject1, setOtherProject1] = useState(null);
   const [otherProject2, setOtherProject2] = useState(null);
 
-  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-
-  const isMobile = useMediaQuery({ query: "(max-width: 500px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 540px)" });
 
   useEffect(() => {
     if (title === "brown-photo-app") {

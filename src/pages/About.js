@@ -1,7 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { ScrollTrigger } from "gsap/all";
-import { ScrollToPlugin } from "gsap/all";
-import gsap from "gsap/gsap-core";
+import { textRevealSwipe, scrollReveal } from "../components/utils/Animation";
 import { Link } from "react-router-dom";
 import { FaInstagram, FaWhatsapp, FaLinkedinIn } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
@@ -32,102 +30,10 @@ const About = () => {
   let secondRow = useRef(null);
   let thirdRow = useRef(null);
 
-  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-
-  const textRevealSwipe = (node1, node2, node3, node4, photo) => {
-    const firstText = node1.children[0].children[0];
-    const firstBox = firstText.nextSibling;
-    const secondText = node1.children[1].children[0];
-    const secondBox = secondText.nextSibling;
-    const thirdText = node1.children[2].children[0];
-    const thirdBox = thirdText.nextSibling;
-
-    const firstRowText = node2.children[0];
-
-    let tl = new gsap.timeline({ delay: 0.8 });
-
-    tl.to([firstBox, secondBox, thirdBox], {
-      duration: 0.6,
-      css: {
-        left: "0",
-      },
-      stagger: 0.06,
-      ease: "power4.out",
-    })
-      .to([firstText, secondText, thirdText], {
-        duration: 0,
-        css: {
-          opacity: "1",
-        },
-      })
-      .to(
-        [firstBox, secondBox, thirdBox],
-        {
-          duration: 0.8,
-          css: {
-            left: "100%",
-          },
-          stagger: 0.1,
-          ease: "power4.in",
-        },
-        "+=0.1"
-      )
-      .from(
-        photo,
-        { duration: 0.8, opacity: 0, y: 200, ease: "power3.out" },
-        "-=0.2"
-      )
-      .from(firstRowText, {
-        duration: 0.6,
-        opacity: 0,
-        y: 200,
-        ease: "power3.out",
-      })
-      .addLabel("headerAnimFinish");
-
-    scrollReveal(node3);
-    scrollReveal(node4);
-  };
-
-  const scrollReveal = (node) => {
-    const text = node.children[0];
-    const images = gsap.utils.toArray(text.nextSibling.children);
-
-    gsap
-      .timeline(
-        {
-          scrollTrigger: {
-            trigger: node,
-            start: "30% bottom",
-          },
-        },
-        "headerAnimFinish"
-      )
-      .from(text, {
-        duration: 0.6,
-        opacity: 0,
-        y: 200,
-        ease: "power3.out",
-      });
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: text.nextSibling,
-          start: "50% bottom",
-        },
-      })
-      .from(images, {
-        duration: 1,
-        opacity: 0,
-        y: -100,
-        ease: "bounce.out",
-        stagger: 0.2,
-      });
-  };
-
   useEffect(() => {
-    textRevealSwipe(title, firstRow, secondRow, thirdRow, photo);
+    textRevealSwipe(title, firstRow, photo);
+    scrollReveal(secondRow);
+    scrollReveal(thirdRow);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

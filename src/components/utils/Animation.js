@@ -235,3 +235,148 @@ export const handleHoverExit = (e) => {
     ease: "power3.inOut",
   });
 };
+
+//contact page animation
+export const contactReveal = (node1, node2) => {
+  const photo = node1;
+  const title = node2.children[0].children;
+  const description = node2.children[1];
+  const contactLink1 = gsap.utils.toArray(
+    description.nextSibling.children[0].children
+  );
+  const contactLink2 = gsap.utils.toArray(
+    description.nextSibling.children[1].children
+  );
+
+  gsap
+    .timeline({ delay: 0.8 })
+    .from(title, {
+      duration: 1,
+      y: 60,
+      opacity: 0,
+      skewY: -2,
+      stagger: 0.1,
+      ease: "power3.out",
+    })
+    .from(
+      description,
+      {
+        duration: 0.7,
+        opacity: 0,
+        x: 50,
+        ease: "power3.out",
+      },
+      "-=0.8"
+    )
+    .from(
+      [...contactLink1, ...contactLink2],
+      {
+        duration: 0.6,
+        y: -50,
+        opacity: 0,
+        stagger: 0.2,
+        ease: "back.out(2.5)",
+      },
+      "-=0.6"
+    )
+    .from(
+      photo,
+      {
+        duration: 0.5,
+        y: -100,
+        opacity: 0,
+        ease: "power3.out",
+      },
+      1
+    );
+};
+
+// about page animation
+export const textRevealSwipe = (node1, node2, photo) => {
+  const firstText = node1.children[0].children[0];
+  const firstBox = firstText.nextSibling;
+  const secondText = node1.children[1].children[0];
+  const secondBox = secondText.nextSibling;
+  const thirdText = node1.children[2].children[0];
+  const thirdBox = thirdText.nextSibling;
+
+  const firstRowText = node2.children[0];
+
+  let tl = new gsap.timeline({ delay: 0.8 });
+
+  tl.to([firstBox, secondBox, thirdBox], {
+    duration: 0.6,
+    css: {
+      left: "0",
+    },
+    stagger: 0.06,
+    ease: "power4.out",
+  })
+    .to([firstText, secondText, thirdText], {
+      duration: 0,
+      css: {
+        opacity: "1",
+      },
+    })
+    .to(
+      [firstBox, secondBox, thirdBox],
+      {
+        duration: 0.8,
+        css: {
+          left: "100%",
+        },
+        stagger: 0.1,
+        ease: "power4.in",
+      },
+      "+=0.1"
+    )
+    .from(
+      photo,
+      { duration: 0.8, opacity: 0, y: 200, ease: "power3.out" },
+      "-=0.2"
+    )
+    .from(firstRowText, {
+      duration: 0.6,
+      opacity: 0,
+      y: 200,
+      ease: "power3.out",
+    })
+    .addLabel("headerAnimFinish");
+};
+
+export const scrollReveal = (node) => {
+  const text = node.children[0];
+  const images = gsap.utils.toArray(text.nextSibling.children);
+
+  gsap
+    .timeline(
+      {
+        scrollTrigger: {
+          trigger: node,
+          start: "30% bottom",
+        },
+      },
+      "headerAnimFinish"
+    )
+    .from(text, {
+      duration: 0.6,
+      opacity: 0,
+      y: 200,
+      ease: "power3.out",
+    });
+
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: text.nextSibling,
+        start: "50% bottom",
+      },
+    })
+    .from(images, {
+      duration: 1,
+      opacity: 0,
+      y: -100,
+      ease: "bounce.out",
+      stagger: 0.2,
+    });
+};
