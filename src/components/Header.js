@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { withRouter, Link } from "react-router-dom";
 import Hamburger from "./Hamburger";
+import { scrollToTopBtn } from "./utils/Animation";
+import gsap from "gsap/gsap-core";
 
 const Header = ({ history }) => {
   const [state, setState] = useState({
@@ -10,12 +12,16 @@ const Header = ({ history }) => {
   });
   const [disabled, setDisabled] = useState(false);
 
+  const app = document.querySelector(".app");
+
   //when page changes
   useEffect(() => {
     history.listen(() => {
       setState({ clicked: false, menuName: "Menu" });
       document.body.style.overflowY = "";
       document.querySelector("header").style.color = "#0a0a0c";
+      scrollToTopBtn();
+      gsap.set(app, { autoAlpha: 1 });
     });
   });
 

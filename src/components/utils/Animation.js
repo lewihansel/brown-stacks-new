@@ -83,21 +83,42 @@ export const projectReveal = (content) => {
     );
 };
 
-export const scrollToTopBtn = () => {
-  gsap.to(window, { duration: 1, scrollTo: 0, ease: "power3" });
+// project details page
+
+export const projectDetailsReveal = (node) => {
+  const backgroundImage = node.children[0].children[0];
+  const overlay = backgroundImage.nextSibling;
+  const content = node.children[1].children[0].children[0];
+
+  gsap
+    .timeline({ delay: 0.8 })
+    .to(window, 0.3, { scrollTo: "#content-start" })
+    .from(backgroundImage, 0.5, {
+      y: -50,
+      ease: "power3.easeOut",
+      opacity: 0,
+      scale: 1.1,
+    })
+    .from(overlay, 3, { opacity: 0, y: 200, ease: "power3.easeOut" }, 0.1)
+    .from(content, 1, { opacity: 0, y: 300, ease: "power3.easeOut" }, 2.5);
 };
 
-export const desktopHomeAnimation = (node, btn) => {
+export const scrollToTopBtn = () => {
+  gsap.to(window, { duration: 0.3, scrollTo: 0, ease: "power3" });
+};
+
+export const homeAnimation = (node, btn) => {
   //hero text ref
-  const heroLineFirst = node.children[0];
-  const heroLineSecond = heroLineFirst.nextSibling;
-  const heroLineThird = heroLineSecond.nextSibling;
+  const heroLines = gsap.utils.toArray(node.children);
+  const heroLinesChild = [];
+
+  heroLines.map((line) => heroLinesChild.push(line.children));
 
   //hero text animation
   gsap
     .timeline({ delay: 0.6 })
     .staggerFrom(
-      [heroLineFirst.children, heroLineSecond.children, heroLineThird.children],
+      heroLinesChild,
       0.7,
       {
         y: 40,
@@ -114,46 +135,6 @@ export const desktopHomeAnimation = (node, btn) => {
         ease: "power3.easeOut",
       },
       0.5
-    );
-};
-
-export const mobileHomeAnimation = (node, btn) => {
-  //hero text ref
-  const heroLineFirst = node.children[0];
-  const heroLineSecond = heroLineFirst.nextSibling;
-  const heroLineThird = heroLineSecond.nextSibling;
-  const heroLineFourth = heroLineThird.nextSibling;
-  const heroLineFifth = heroLineFourth.nextSibling;
-  const heroLineSixth = heroLineFifth.nextSibling;
-
-  //hero text animation
-  gsap
-    .timeline({ delay: 0.6 })
-    .staggerFrom(
-      [
-        heroLineFirst.children,
-        heroLineSecond.children,
-        heroLineThird.children,
-        heroLineFourth.children,
-        heroLineFifth.children,
-        heroLineSixth.children,
-      ],
-      0.7,
-      {
-        y: 40,
-        ease: "power3.easeOut",
-      },
-      0.15
-    )
-    .from(
-      btn,
-      0.5,
-      {
-        x: -20,
-        opacity: 0,
-        ease: "power3.easeOut",
-      },
-      1
     );
 };
 

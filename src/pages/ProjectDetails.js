@@ -3,9 +3,9 @@ import { useParams } from "react-router";
 import { FaLink } from "react-icons/fa";
 import projectImages from "../images/projectImages";
 import { Link } from "react-router-dom";
-import gsap from "gsap/gsap-core";
 import { useMediaQuery } from "react-responsive";
 import Footer from "../components/Footer";
+import { projectDetailsReveal } from "../components/utils/Animation";
 
 const ProjectDetails = () => {
   let { title } = useParams();
@@ -27,26 +27,7 @@ const ProjectDetails = () => {
       setOtherProject1(projectImages["brown-movie-lookup"]);
       setOtherProject2(projectImages["brown-photo-app"]);
     }
-  }, [title]);
-
-  useEffect(() => {
-    if (projectDetails) {
-      const backgroundImage = projectDetails.children[0].children[0];
-      const overlay = backgroundImage.nextSibling;
-      const content = projectDetails.children[1].children[0].children[0];
-
-      gsap
-        .timeline({ delay: 0.5 })
-        .to(window, 0.3, { scrollTo: "#content-start" })
-        .from(backgroundImage, 0.5, {
-          y: -50,
-          ease: "power3.easeOut",
-          opacity: 0,
-          scale: 1.5,
-        })
-        .from(overlay, 3, { opacity: 0, y: 200, ease: "power3.easeOut" }, 0.1)
-        .from(content, 1, { opacity: 0, y: 300, ease: "power3.easeOut" }, 2.5);
-    }
+    projectDetailsReveal(projectDetails);
   }, [title]);
 
   return (

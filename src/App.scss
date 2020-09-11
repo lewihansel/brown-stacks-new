@@ -1070,11 +1070,12 @@ header {
       }
     }
   }
+
   .contactBtn {
     width: 480px;
     color: $black;
     margin: 0 auto;
-    margin-top: 5rem;
+    margin-top: 7rem;
     display: flex;
     flex-direction: column;
     @media (max-width: 540px) {
@@ -1085,6 +1086,7 @@ header {
       color: initial;
       font-size: 26px;
     }
+    .projectBtnTitle,
     .contactTitle {
       font-size: 18px;
       color: $text-grey;
@@ -1096,6 +1098,9 @@ header {
       @media (max-width: 540px) {
         font-size: 16px;
       }
+    }
+    .projectBtnTitle {
+      margin-bottom: 2rem;
     }
     .contactAccount {
       display: flex;
@@ -1241,4 +1246,18 @@ header {
       }
     }
   }
+}
+
+// react transition group page transition
+.home-enter {
+}
+.home-enter-active {
+  transition: opacity 600ms;
+}
+.home-exit {
+  opacity: 1;
+}
+.home-exit-active {
+  opacity: 0;
+  transition: all 600ms;
 }

@@ -31,10 +31,10 @@ const Contact = () => {
           </div>
 
           <div className="description">
-            My real name is Lewi Hansel, a web developer from Jakarta. Right now
-            I'm open to new opportunities specifically as a front-end,
-            full-stack, or backend developer. Reach me out via one of these
-            links.
+            My real name is Lewi Hansel, a web developer from Jakarta. I'm open
+            to new opportunities specifically as a front-end, full-stack, or
+            backend developer. Reach me out via one of these links for my
+            resume.
           </div>
           <div className="contactAccount">
             <div className="col1">

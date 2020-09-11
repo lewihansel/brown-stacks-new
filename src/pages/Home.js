@@ -2,10 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import { TimelineLite } from "gsap/all";
 import { BsArrowRight } from "react-icons/bs";
-import {
-  mobileHomeAnimation,
-  desktopHomeAnimation,
-} from "../components/utils/Animation";
+import { homeAnimation } from "../components/utils/Animation";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -17,11 +14,7 @@ const Home = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 540px)" });
 
   useEffect(() => {
-    if (isMobile) {
-      mobileHomeAnimation(heroText, heroBtn);
-    } else {
-      desktopHomeAnimation(heroText, heroBtn);
-    }
+    homeAnimation(heroText, heroBtn);
 
     // backgroundtext animation
     if (!isMobile) {
@@ -56,38 +49,17 @@ const Home = () => {
                 a digital marketing background.
               </div>
             </div>
-            <div className="hero-text-line">
-              <div className="hero-text-line-inner">
-                Here to help you provide
-              </div>
-            </div>
-            <div className="hero-text-line">
-              <div className="hero-text-line-inner">
-                meaningful web experience
-              </div>
-            </div>
-            <div className="hero-text-line">
-              <div className="hero-text-line-inner">
-                for your potential customer.
-              </div>
-            </div>
           </h5>
         ) : (
           <h5 ref={(el) => (heroText = el)}>
             <div className="hero-text-line">
               <div className="hero-text-line-inner">
-                Hi my name is <b>James Brown</b>. Creative web developer with a
-                digital
+                Hi my name is <b>James Brown</b>. Creative web developer
               </div>
             </div>
             <div className="hero-text-line">
               <div className="hero-text-line-inner">
-                marketing background. Here to help you provide meaningful web
-              </div>
-            </div>
-            <div className="hero-text-line">
-              <div className="hero-text-line-inner">
-                experience for your potential customer.
+                with a digital marketing background.
               </div>
             </div>
           </h5>

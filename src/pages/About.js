@@ -142,6 +142,10 @@ const About = () => {
       </div>
 
       <div className="contactBtn">
+        <Link to="/projects">Check out my work.</Link>
+        <span className="projectBtnTitle">
+          <em>Click the link</em> above to check my recent project
+        </span>
         <Link to="/contact">Get In Touch.</Link>
         <span className="contactTitle">
           <em>That's about me</em>, now it's your turn. <em>Reach me out</em> at
