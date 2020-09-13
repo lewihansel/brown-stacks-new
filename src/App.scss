@@ -742,12 +742,12 @@ header {
         position: relative;
         box-shadow: $soft-shadow;
         padding-top: 42%;
-        &:last-child {
-          margin-top: 5rem;
-        }
         @media (max-width: 1024px) {
           width: 60%;
           padding-top: 78%;
+          &:last-child {
+            margin-top: 5rem;
+          }
         }
         @media (max-width: 540px) {
           min-width: 80%;
@@ -1156,6 +1156,11 @@ header {
     width: 100%;
     justify-content: center;
     margin-bottom: 12vw;
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      margin-top: 1rem;
+      align-items: center;
+    }
     @media (max-width: 540px) {
       flex-direction: column;
       margin-top: 1rem;
@@ -1176,6 +1181,11 @@ header {
     .text-content {
       margin-left: 4rem;
       width: 650px;
+      @media (max-width: 1024px) {
+        margin-left: 0rem;
+        width: 90%;
+        text-align: justify;
+      }
       @media (max-width: 540px) {
         margin-left: 0rem;
         width: 95%;
@@ -1225,6 +1235,9 @@ header {
             margin-top: 0.5rem;
             span {
               margin-left: 0.3rem;
+            }
+            @media (max-width: 1024px) {
+              font-size: 20px;
             }
             @media (max-width: 540px) {
               font-size: 18px;
