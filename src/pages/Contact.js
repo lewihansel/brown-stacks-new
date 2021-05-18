@@ -3,12 +3,13 @@ import profilePic from "../images/about/profile-pic 1.png";
 import {
   FaInstagram,
   FaWhatsapp,
-  FaLinkedinIn,
   FaGithub,
+  FaTelegramPlane,
+  FaEnvelope,
 } from "react-icons/fa";
-import { FiMail } from "react-icons/fi";
 import Footer from "../components/Footer";
 import { contactReveal } from "../components/utils/Animation";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   let photo = useRef(null);
@@ -31,10 +32,19 @@ const Contact = () => {
           </div>
 
           <div className="description">
-            My real name is Lewi Hansel, a web developer from Jakarta. I'm open
-            to new opportunities specifically as a front-end, full-stack, or
-            backend developer. Reach me out via one of these links for my
-            resume.
+            My real name is Lewi Hansel, a professional web developer and a{" "}
+            <Link
+              to={{
+                pathname:
+                  "https://www.credly.com/badges/87f28557-ac1a-4e4b-9163-7f5f75d5a7b8/public_url",
+              }}
+              target="_blank"
+            >
+              CyberOps Associate
+            </Link>{" "}
+            from Jakarta. I'm open to new opportunities specifically as a Threat
+            Analyst, Cybersecurity Analyst, or System Engineer. Reach me out via
+            one of these links for my resume.
           </div>
           <div className="contactAccount">
             <div className="col1">
@@ -48,12 +58,16 @@ const Contact = () => {
               </a>
             </div>
             <div className="col2">
-              <a href="https://www.linkedin.com/in/lewihansel/">
+              {/* <a href="https://www.linkedin.com/in/lewihansel/">
                 <FaLinkedinIn />
                 <span>LinkedIn</span>
+              </a> */}
+              <a href="https://t.me/lewihansel">
+                <FaTelegramPlane />
+                <span>Telegram</span>
               </a>
               <a href="mailto:hansel1895@gmail.com">
-                <FiMail />
+                <FaEnvelope />
                 <span>Mail</span>
               </a>
               <a href="https://github.com/lewihansel/">

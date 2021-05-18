@@ -41,12 +41,12 @@ const Home = () => {
             </div>
             <div className="hero-text-line">
               <div className="hero-text-line-inner">
-                Creative web developer with
+                Professional web developer with
               </div>
             </div>
             <div className="hero-text-line">
               <div className="hero-text-line-inner">
-                a digital marketing background.
+                a passion in security and privacy.
               </div>
             </div>
           </h5>
@@ -54,12 +54,12 @@ const Home = () => {
           <h5 ref={(el) => (heroText = el)}>
             <div className="hero-text-line">
               <div className="hero-text-line-inner">
-                Hi my name is <b>James Brown</b>. Creative web developer
+                Hi my name is <b>James Brown</b>. Professional web developer
               </div>
             </div>
             <div className="hero-text-line">
               <div className="hero-text-line-inner">
-                with a digital marketing background.
+                with a passion in security and privacy.
               </div>
             </div>
           </h5>

@@ -1,8 +1,12 @@
 import React, { useRef, useEffect } from "react";
 import { textRevealSwipe, scrollReveal } from "../components/utils/Animation";
 import { Link } from "react-router-dom";
-import { FaInstagram, FaWhatsapp, FaLinkedinIn } from "react-icons/fa";
-import { FiMail } from "react-icons/fi";
+import {
+  FaInstagram,
+  FaWhatsapp,
+  FaTelegramPlane,
+  FaEnvelope,
+} from "react-icons/fa";
 import Footer from "../components/Footer";
 
 import profilePic from "../images/about/profile-pic 1.png";
@@ -18,9 +22,12 @@ import sass from "../images/about/sass.png";
 import reactjs from "../images/about/react.png";
 import greensock from "../images/about/gsap.png";
 
-import gAnalytics from "../images/about/Analytics.png";
-import gAds from "../images/about/GoogleAds.png";
-import ahrefs from "../images/about/Ahrefs.png";
+import cyberOpsBadge from "../images/about/cyberops-associate.png";
+// import gAnalytics from "../images/about/Analytics.png";
+// import elasticStack from "../images/about/elk-2.png";
+// import securityOnion from "../images/about/securityonion.jpg";
+// import gAds from "../images/about/GoogleAds.png";
+// import ahrefs from "../images/about/Ahrefs.png";
 
 const About = () => {
   let title = useRef(null);
@@ -61,8 +68,8 @@ const About = () => {
         <div className="text">
           <span>
             My real name is <em>Lewi Hansel</em>, I’m a{" "}
-            <em>creative web developer</em>, with a good knowledge about{" "}
-            <em>digital marketing</em>.
+            <em>professional web developer</em>, with a solid knowledge about{" "}
+            <em>network security</em>.
           </span>
           <br />
           <br />
@@ -114,30 +121,54 @@ const About = () => {
       <div className="thirdRow" ref={(el) => (thirdRow = el)}>
         <div className="text">
           <span className="rowTitle">
-            on my <em>digital marketing</em> strategy
+            on my <em>network security</em> skill
           </span>
           <br />
           <br />
           <span>
-            I was formally a <em>digital marketing manager</em>. Mostly website
-            marketing, but also managing other marketing channels like social
-            media, and email marketing.
+            I'm a{" "}
+            <Link
+              to={{
+                pathname:
+                  "https://www.credly.com/badges/87f28557-ac1a-4e4b-9163-7f5f75d5a7b8/public_url",
+              }}
+              target="_blank"
+            >
+              <em>CyberOps Associate</em>
+            </Link>{" "}
+            trained at the Digital Talent Scholarship program lead by
+            Kementerian Komunikasi dan Informatika RI and Cisco Networking
+            Academy. This course has given me a solid knowledge on how to become
+            a <em>threat analyst</em> (tier 1 SOC personnel).
           </span>
           <br />
           <br />
           <span>
-            My approach is always, first{" "}
-            <em>identify the target customer demographic</em>. Second, design
-            marketing content around the data. Third, evaluate and refine the
-            demographic data. I will always push my team to create a{" "}
-            <em>design that matters to our customers</em> not just aesthetically
-            pleasing.
+            I'm able to use network monitoring tools (such as ELK, Wireshark,
+            Sguil, etc.) to <em>identify attacks</em> against network protocols
+            and services by <em>evaluating network security alerts</em>. And
+            then if the alert is valid, <em>apply incident response models</em>,
+            based on pre-defined playbooks to respond to a specific threat
+            (either investigating it or just escalate the ticket to other
+            support groups).
           </span>
         </div>
         <div className="images left">
-          <img src={gAnalytics} alt="analytics logo" className="analytics" />
-          <img src={gAds} alt="google ads logo" className="ads" />
-          <img src={ahrefs} alt="ahrefs logo" className="ahrefs" />
+          <Link
+            to={{
+              pathname:
+                "https://www.credly.com/badges/87f28557-ac1a-4e4b-9163-7f5f75d5a7b8/public_url",
+            }}
+            target="_blank"
+          >
+            <img
+              src={cyberOpsBadge}
+              alt="cyberops badge"
+              className="analytics"
+            />
+          </Link>
+          {/* <img src={elasticStack} alt="elk stack" className="ads" /> */}
+          {/* <img src={securityOnion} alt="security onion" className="ahrefs" /> */}
         </div>
       </div>
 
@@ -163,12 +194,16 @@ const About = () => {
             </a>
           </div>
           <div className="col2">
-            <a href="https://www.linkedin.com/in/lewihansel/">
+            {/* <a href="https://www.linkedin.com/in/lewihansel/">
               <FaLinkedinIn />
               <span>LinkedIn</span>
+            </a> */}
+            <a href="https://t.me/lewihansel">
+              <FaTelegramPlane />
+              <span>Telegram</span>
             </a>
             <a href="mailto:hansel1895@gmail.com">
-              <FiMail />
+              <FaEnvelope />
               <span>Mail</span>
             </a>
           </div>
