@@ -3,9 +3,9 @@ import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 
-import brownPhotoShare from "../images/hover/Hover_490px.png";
-import brownMovie from "../images/hover/Hover_BrownMovie.png";
-import BrownCommerce from "../images/hover/Hover_BrownCommerce.png";
+import brownPhotoShare from "../images/hover/Hover_490px.webp";
+import brownMovie from "../images/hover/Hover_BrownMovie.webp";
+import BrownCommerce from "../images/hover/Hover_BrownCommerce.webp";
 import { useMediaQuery } from "react-responsive";
 import {
   staggerReveal,

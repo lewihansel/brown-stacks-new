@@ -1,11 +1,11 @@
 import React, { useRef, useEffect } from "react";
-import profilePic from "../images/about/profile-pic 1.png";
+import profilePic from "../images/about/profile-pic 1.webp";
 import {
-  FaInstagram,
-  FaWhatsapp,
   FaGithub,
   FaTelegramPlane,
   FaEnvelope,
+  FaLinkedinIn,
+  FaTwitter,
 } from "react-icons/fa";
 import Footer from "../components/Footer";
 import { contactReveal } from "../components/utils/Animation";
@@ -48,23 +48,19 @@ const Contact = () => {
           </div>
           <div className="contactAccount">
             <div className="col1">
-              <a href="https://www.instagram.com/lewihansel/">
-                <FaInstagram />
-                <span>Instagram</span>
+              <a href="https://x.com/lewihansel">
+                <FaTwitter />
+                <span>Twitter</span>
               </a>
-              <a href="https://wa.me/6285780008389?text=Hi%20Hansel%20👋">
-                <FaWhatsapp />
-                <span>What'sApp</span>
-              </a>
-            </div>
-            <div className="col2">
-              {/* <a href="https://www.linkedin.com/in/lewihansel/">
-                <FaLinkedinIn />
-                <span>LinkedIn</span>
-              </a> */}
               <a href="https://t.me/lewihansel">
                 <FaTelegramPlane />
                 <span>Telegram</span>
+              </a>
+            </div>
+            <div className="col2">
+              <a href="https://www.linkedin.com/in/lewihansel/">
+                <FaLinkedinIn />
+                <span>LinkedIn</span>
               </a>
               <a href="mailto:hansel1895@gmail.com">
                 <FaEnvelope />

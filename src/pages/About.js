@@ -2,27 +2,28 @@ import React, { useRef, useEffect } from "react";
 import { textRevealSwipe, scrollReveal } from "../components/utils/Animation";
 import { Link } from "react-router-dom";
 import {
-  FaInstagram,
-  FaWhatsapp,
+  FaLinkedinIn,
+  FaTwitter,
   FaTelegramPlane,
   FaEnvelope,
+  FaGithub,
 } from "react-icons/fa";
 import Footer from "../components/Footer";
 
-import profilePic from "../images/about/profile-pic 1.png";
-import python from "../images/about/python.png";
-import js from "../images/about/js.png";
-import nodejs from "../images/about/node.png";
-import firebase from "../images/about/firebase.png";
-import mongodb from "../images/about/mongodb.png";
-import django from "../images/about/django.png";
-import strapi from "../images/about/strapi.png";
-import postgresql from "../images/about/postgresql.png";
-import sass from "../images/about/sass.png";
-import reactjs from "../images/about/react.png";
-import greensock from "../images/about/gsap.png";
+import profilePic from "../images/about/profile-pic 1.webp";
+import python from "../images/about/python.webp";
+import js from "../images/about/js.webp";
+import nodejs from "../images/about/node.webp";
+import firebase from "../images/about/firebase.webp";
+import mongodb from "../images/about/mongodb.webp";
+import django from "../images/about/django.webp";
+import strapi from "../images/about/strapi.webp";
+import postgresql from "../images/about/postgresql.webp";
+import sass from "../images/about/sass.webp";
+import reactjs from "../images/about/react.webp";
+import greensock from "../images/about/gsap.webp";
 
-import cyberOpsBadge from "../images/about/cyberops-associate.png";
+import cyberOpsBadge from "../images/about/cyberops-associate.webp";
 // import gAnalytics from "../images/about/Analytics.png";
 // import elasticStack from "../images/about/elk-2.png";
 // import securityOnion from "../images/about/securityonion.jpg";
@@ -184,27 +185,27 @@ const About = () => {
         </span>
         <div className="contactAccount">
           <div className="col1">
-            <a href="https://www.instagram.com/lewihansel/">
-              <FaInstagram />
-              <span>Instagram</span>
+            <a href="https://x.com/lewihansel">
+              <FaTwitter />
+              <span>Twitter</span>
             </a>
-            <a href="https://wa.me/6285780008389?text=Hi%20Hansel%20👋">
-              <FaWhatsapp />
-              <span>What'sApp</span>
-            </a>
-          </div>
-          <div className="col2">
-            {/* <a href="https://www.linkedin.com/in/lewihansel/">
-              <FaLinkedinIn />
-              <span>LinkedIn</span>
-            </a> */}
             <a href="https://t.me/lewihansel">
               <FaTelegramPlane />
               <span>Telegram</span>
             </a>
+          </div>
+          <div className="col2">
+            <a href="https://www.linkedin.com/in/lewihansel/">
+              <FaLinkedinIn />
+              <span>LinkedIn</span>
+            </a>
             <a href="mailto:hansel1895@gmail.com">
               <FaEnvelope />
               <span>Mail</span>
+            </a>
+            <a href="https://github.com/lewihansel/">
+              <FaGithub />
+              <span>Github</span>
             </a>
           </div>
         </div>
