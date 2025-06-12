@@ -2,10 +2,11 @@ import React, { useRef, useEffect } from "react";
 import { textRevealSwipe, scrollReveal } from "../components/utils/Animation";
 import { Link } from "react-router-dom";
 import {
-  FaInstagram,
-  FaWhatsapp,
+  FaLinkedinIn,
+  FaTwitter,
   FaTelegramPlane,
   FaEnvelope,
+  FaGithub,
 } from "react-icons/fa";
 import Footer from "../components/Footer";
 
@@ -184,27 +185,27 @@ const About = () => {
         </span>
         <div className="contactAccount">
           <div className="col1">
-            <a href="https://www.instagram.com/lewihansel/">
-              <FaInstagram />
-              <span>Instagram</span>
+            <a href="https://x.com/lewihansel">
+              <FaTwitter />
+              <span>Twitter</span>
             </a>
-            <a href="https://wa.me/6285780008389?text=Hi%20Hansel%20👋">
-              <FaWhatsapp />
-              <span>What'sApp</span>
-            </a>
-          </div>
-          <div className="col2">
-            {/* <a href="https://www.linkedin.com/in/lewihansel/">
-              <FaLinkedinIn />
-              <span>LinkedIn</span>
-            </a> */}
             <a href="https://t.me/lewihansel">
               <FaTelegramPlane />
               <span>Telegram</span>
             </a>
+          </div>
+          <div className="col2">
+            <a href="https://www.linkedin.com/in/lewihansel/">
+              <FaLinkedinIn />
+              <span>LinkedIn</span>
+            </a>
             <a href="mailto:hansel1895@gmail.com">
               <FaEnvelope />
               <span>Mail</span>
+            </a>
+            <a href="https://github.com/lewihansel/">
+              <FaGithub />
+              <span>Github</span>
             </a>
           </div>
         </div>
