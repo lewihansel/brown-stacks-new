@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import profilePic from "../images/about/profile-pic 1.png";
+import profilePic from "../images/about/profile-pic 1.webp";
 import {
   FaInstagram,
   FaWhatsapp,

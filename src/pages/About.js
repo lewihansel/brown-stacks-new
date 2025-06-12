@@ -9,20 +9,20 @@ import {
 } from "react-icons/fa";
 import Footer from "../components/Footer";
 
-import profilePic from "../images/about/profile-pic 1.png";
-import python from "../images/about/python.png";
-import js from "../images/about/js.png";
-import nodejs from "../images/about/node.png";
-import firebase from "../images/about/firebase.png";
-import mongodb from "../images/about/mongodb.png";
-import django from "../images/about/django.png";
-import strapi from "../images/about/strapi.png";
-import postgresql from "../images/about/postgresql.png";
-import sass from "../images/about/sass.png";
-import reactjs from "../images/about/react.png";
-import greensock from "../images/about/gsap.png";
+import profilePic from "../images/about/profile-pic 1.webp";
+import python from "../images/about/python.webp";
+import js from "../images/about/js.webp";
+import nodejs from "../images/about/node.webp";
+import firebase from "../images/about/firebase.webp";
+import mongodb from "../images/about/mongodb.webp";
+import django from "../images/about/django.webp";
+import strapi from "../images/about/strapi.webp";
+import postgresql from "../images/about/postgresql.webp";
+import sass from "../images/about/sass.webp";
+import reactjs from "../images/about/react.webp";
+import greensock from "../images/about/gsap.webp";
 
-import cyberOpsBadge from "../images/about/cyberops-associate.png";
+import cyberOpsBadge from "../images/about/cyberops-associate.webp";
 // import gAnalytics from "../images/about/Analytics.png";
 // import elasticStack from "../images/about/elk-2.png";
 // import securityOnion from "../images/about/securityonion.jpg";
